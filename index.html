@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agro Conecta</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f7f2;color:#203127}
+header{background:#123d28;color:white;padding:18px}
+.logo{font-size:24px;font-weight:bold}
+.logo span{color:#a9e5a2}
+nav{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.hero{background:linear-gradient(135deg,#123d28,#287345);color:white;padding:45px 22px}
+.hero h1{font-size:34px;margin-bottom:14px}
+.hero p{font-size:17px;line-height:1.5}
+.container{max-width:1100px;margin:auto;padding:22px}
+.search{background:white;padding:18px;border-radius:14px;margin-top:-20px;box-shadow:0 5px 20px #0001}
+input,select{padding:13px;border:1px solid #ddd;border-radius:8px;width:100%;margin:6px 0;font-size:16px}
+button{background:#267343;color:white;border:0;border-radius:8px;padding:13px 18px;font-size:16px;font-weight:bold;cursor:pointer}
+.categories{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.categories button{background:#e4eee4;color:#245337}
+.section-title{margin:30px 0 18px;font-size:25px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:white;border-radius:14px;padding:20px;box-shadow:0 3px 12px #0001}
+.tag{background:#e5f1e5;color:#27633b;padding:6px 10px;border-radius:20px;font-size:13px;display:inline-block;margin-bottom:12px}
+.card h3{margin-bottom:10px}
+.card p{line-height:1.5;margin:8px 0;color:#536157}
+.card button{width:100%;margin-top:12px}
+.price{font-size:20px;font-weight:bold;color:#267343;margin-top:10px}
+footer{background:#123d28;color:white;text-align:center;padding:28px;margin-top:40px}
+.small{font-size:13px;color:#66736a}
+</style>
+</head>
+<body>
+
+<header>
+<nav>
+<div class="logo">🌱 AGRO <span>CONECTA</span></div>
+<button onclick="alert('Em breve: cadastro e login!')">Entrar</button>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Oportunidades que conectam o agro.</h1>
+<p>Negócios, serviços, fretes, máquinas, empregos e oportunidades do agronegócio em um só lugar.</p>
+<br>
+<button onclick="document.getElementById('oportunidades').scrollIntoView()">Ver oportunidades</button>
+</section>
+
+<div class="container">
+<div class="search">
+<input id="busca" placeholder="Buscar oportunidades, cidade ou serviço..." oninput="filtrar()">
+<select id="categoria" onchange="filtrar()">
+<option value="">Todas as categorias</option>
+<option>Agricultura</option>
+<option>Pecuária</option>
+<option>Fretes</option>
+<option>Máquinas</option>
+<option>Empregos</option>
+<option>Serviços</option>
+<option>Compras</option>
+<option>Vendas</option>
+<option>Grandes contratos</option>
+</select>
+</div>
+
+<h2 class="section-title">Explore o agro</h2>
+<div class="categories">
+<button onclick="selecionar('Agricultura')">🌾 Agricultura</button>
+<button onclick="selecionar('Pecuária')">🐄 Pecuária</button>
+<button onclick="selecionar('Fretes')">🚛 Fretes</button>
+<button onclick="selecionar('Máquinas')">🚜 Máquinas</button>
+<button onclick="selecionar('Empregos')">👷 Empregos</button>
+<button onclick="selecionar('Serviços')">🛠 Serviços</button>
+<button onclick="selecionar('Compras')">🛒 Compras</button>
+<button onclick="selecionar('Vendas')">💰 Vendas</button>
+<button onclick="selecionar('Grandes contratos')">📋 Contratos</button>
+</div>
+
+<h2 class="section-title" id="oportunidades">Oportunidades</h2>
+<div class="cards" id="cards">
+<div class="card" data-cat="Agricultura" data-text="serviço pulverização agrícola matupá">
+<span class="tag">Agricultura</span>
+<h3>Serviço agrícola</h3>
+<p>📍 Matupá - MT</p>
+<p>Demanda por serviço agrícola. Informações completas disponíveis ao desbloquear.</p>
+<div class="price">Desbloqueio demonstrativo</div>
+<button onclick="alert('Esta é uma demonstração. O pagamento e desbloqueio serão integrados posteriormente.')">Ver contato</button>
+</div>
+
+<div class="card" data-cat="Fretes" data-text="frete transporte carga peixoto azevedo">
+<span class="tag">Fretes</span>
+<h3>Demanda por transporte</h3>
+<p>📍 Peixoto de Azevedo - MT</p>
+<p>Oportunidade para transportadores. Contato protegido.</p>
+<div class="price">Desbloqueio demonstrativo</div>
+<button onclick="alert('Esta é uma demonstração. O pagamento e desbloqueio serão integrados posteriormente.')">Ver contato</button>
+</div>
+
+<div class="card" data-cat="Máquinas" data-text="máquinas equipamentos agrícolas novo mundo">
+<span class="tag">Máquinas</span>
+<h3>Equipamento agrícola</h3>
+<p>📍 Novo Mundo - MT</p>
+<p>Oportunidade envolvendo equipamento agrícola.</p>
+<div class="price">Desbloqueio demonstrativo</div>
+<button onclick="alert('Esta é uma demonstração. O pagamento e desbloqueio serão integrados posteriormente.')">Ver contato</button>
+</div>
+
+<div class="card" data-cat="Pecuária" data-text="gado pecuária bovinos pará">
+<span class="tag">Pecuária</span>
+<h3>Negócio pecuário</h3>
+<p>📍 Sul do Pará</p>
+<p>Oportunidade relacionada à pecuária.</p>
+<div class="price">Desbloqueio demonstrativo</div>
+<button onclick="alert('Esta é uma demonstração. O pagamento e desbloqueio serão integrados posteriormente.')">Ver contato</button>
+</div>
+
+<div class="card" data-cat="Empregos" data-text="emprego trabalhador rural mato grosso">
+<span class="tag">Empregos</span>
+<h3>Vaga no agro</h3>
+<p>📍 Mato Grosso</p>
+<p>Oportunidade de trabalho no setor agropecuário.</p>
+<div class="price">Desbloqueio demonstrativo</div>
+<button onclick="alert('Esta é uma demonstração. O pagamento e desbloqueio serão integrados posteriormente.')">Ver contato</button>
+</div>
+
+<div class="card" data-cat="Serviços" data-text="serviços manutenção fazenda pará">
+<span class="tag">Serviços</span>
+<h3>Serviço para fazenda</h3>
+<p>📍 Região Norte</p>
+<p>Demanda por prestador de serviço.</p>
+<div class="price">Desbloqueio demonstrativo</div>
+<button onclick="alert('Esta é uma demonstração. O pagamento e desbloqueio serão integrados posteriormente.')">Ver contato</button>
+</div>
+</div>
+
+<br><br>
+<div style="text-align:center">
+<button onclick="alert('Em breve: cadastro gratuito para publicar oportunidades!')">Publicar oportunidade grátis</button>
+</div>
+</div>
+
+<footer>
+<div class="logo">🌱 AGRO CONECTA</div>
+<p style="margin-top:10px">Conectando oportunidades e negócios no agronegócio brasileiro.</p>
+<p class="small" style="color:#c8d8ce;margin-top:10px">© Agro Conecta</p>
+</footer>
+
+<script>
+function filtrar(){
+const busca=document.getElementById('busca').value.toLowerCase();
+const cat=document.getElementById('categoria').value;
+document.querySelectorAll('.card').forEach(card=>{
+const texto=card.dataset.text.toLowerCase();
+const categoria=card.dataset.cat;
+card.style.display=(texto.includes(busca)&&(!cat||categoria===cat))?'block':'none';
+});
+}
+function selecionar(cat){
+document.getElementById('categoria').value=cat;
+filtrar();
+document.getElementById('oportunidades').scrollIntoView();
+}
+</script>
+</body>
+</html>
